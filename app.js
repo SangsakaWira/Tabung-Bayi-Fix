@@ -21,6 +21,10 @@ app.get("/:value",function(req,res){
     });
 })
 
+app.get("/",function(req,res){
+    res.send("Web opened");
+})
+
 io.on('connection',function(socket){
     console.log("A user connected");
     socket.on('data', function(data){
