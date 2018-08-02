@@ -7,13 +7,17 @@ const socketIO = require('socket.io');
 var server = http.createServer(app);
 var io = socketIO(server);
 
+var port = process.env.PORT || 3000;
+
 app.set('view engine','hbs');
 app.use(express.static(__dirname + '/public'));
 
 app.get("/:value",function(req,res){
     myValue = req.params.value;
+    port_data = port;
     res.render("data.hbs",{
-        data:myValue
+        data:myValue,
+        port:port_data
     });
 })
 
@@ -24,7 +28,7 @@ io.on('connection',function(socket){
       });
 })
 
-server.listen(process.env.PORT || 3000,function(){
+server.listen(port,function(){
     console.log("Server is running");
-    console.log("At" + process.env.PORT);
+    console.log("At" + port);
 })
