@@ -22,7 +22,7 @@ app.get("/:value",function(req,res){
 })
 
 app.get("/",function(req,res){
-    res.send("Web opened");
+    res.send("Web opened at " + port);
 })
 
 io.on('connection',function(socket){
