@@ -7,11 +7,10 @@
        
         socket.on("connect",function(){
             console.log("Connected to server");
-        })
+        });
 
-        socket.on("suhu_data",function(suhu){
-            console.log("Data: ",suhu);
-        })
-
-         
+        socket.on("data",function(suhu){
+            console.log("data: ",suhu);
+        });
+  
 </script>

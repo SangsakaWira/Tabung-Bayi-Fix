@@ -19,25 +19,27 @@ app.get("/data/:value",function(req,res){
         data:myValue,
         port:port_data
     });
-})
+});
 
 app.get("/",function(req,res){
     res.render("index.hbs");
-})
+});
 
 io.on('connection',function(socket){
     console.log("A user connected");
     socket.on('data', function(data){
-        console.log("Suhu: " + data);
-        socket.emit("suhu_data",{
-            suhu:data
-        });
+        mySuhu = data;
+        console.log("Suhu: " + mySuhu);
+
+        io.emit("data",{
+            suhu:mySuhu
+        })
       });
 
+});
 
-})
 
 server.listen(port,function(){
     console.log("Server is running");
-    console.log("At" + port);
-})
+    console.log("At " + port);
+});
