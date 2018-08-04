@@ -29,7 +29,7 @@ io.on('connection',function(socket){
     console.log("A user connected");
     socket.on('data', function(data){
         console.log("Suhu: " + data);
-        socket.emit("send_data",{
+        socket.emit("data",{
             suhu:data
         });
       });
