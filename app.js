@@ -22,7 +22,7 @@ app.get("/data/:value",function(req,res){
 })
 
 app.get("/",function(req,res){
-    res.send("Web opened at " + port);
+    res.render("index.hbs");
 })
 
 io.on('connection',function(socket){
