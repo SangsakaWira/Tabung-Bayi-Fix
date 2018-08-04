@@ -4,13 +4,7 @@
     <script>
         
         var socket = io();
-        var data = {{data}};
-        var port = {{port}};
-
-        var jsondata = {
-            nilai:data
-        }
-
+       
         socket.on("connect",function(){
             console.log("Connected to server");
         })
