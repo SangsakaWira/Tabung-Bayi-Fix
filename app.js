@@ -12,7 +12,7 @@ var port = process.env.PORT || 3000;
 app.set('view engine','hbs');
 app.use(express.static(__dirname + '/public'));
 
-app.get("/:value",function(req,res){
+app.get("/data/:value",function(req,res){
     myValue = req.params.value;
     port_data = port;
     res.render("data.hbs",{
@@ -29,6 +29,7 @@ io.on('connection',function(socket){
     console.log("A user connected");
     socket.on('data', function(data){
         console.log("Suhu: " + data);
+        socket.emit("data",data);
       });
 })
 
