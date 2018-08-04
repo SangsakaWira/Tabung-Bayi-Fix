@@ -33,6 +33,10 @@ io.on('connection',function(socket){
             suhu:data
         });
       });
+
+      socket.emit("suhu_data",{
+        suhu:50
+    });
 })
 
 server.listen(port,function(){
