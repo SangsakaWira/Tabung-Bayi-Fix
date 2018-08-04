@@ -29,14 +29,12 @@ io.on('connection',function(socket){
     console.log("A user connected");
     socket.on('data', function(data){
         console.log("Suhu: " + data);
-        socket.emit("data",{
+        socket.emit("suhu_data",{
             suhu:data
         });
       });
 
-      socket.emit("suhu_data",{
-        suhu:50
-    });
+
 })
 
 server.listen(port,function(){
