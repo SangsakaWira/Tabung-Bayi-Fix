@@ -26,7 +26,9 @@ app.get("/",function(req,res){
 });
 
 io.on('connection',function(socket){
+
     console.log("A user connected");
+    
     socket.on('data', function(data){
         mySuhu = data;
         console.log("Suhu: " + mySuhu);
@@ -36,6 +38,7 @@ io.on('connection',function(socket){
         })
 
       });
+
     socket.on('analog',function(analog){
         myAnalog=analog;
         console.log("Analog: " + myAnalog);
