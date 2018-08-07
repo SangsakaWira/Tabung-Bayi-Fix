@@ -34,6 +34,16 @@ io.on('connection',function(socket){
         io.emit("data",{
             suhu:mySuhu
         })
+
+      });
+    socket.on('analog',function(analog){
+        myAnalog=analog;
+        console.log("Analog: " + myAnalog);
+
+        io.emit("analog",{
+            analog:myAnalog
+        })
+
       });
 
 });
