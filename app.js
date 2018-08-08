@@ -28,19 +28,19 @@ app.get("/",function(req,res){
 io.on('connection',function(socket){
 
     console.log("A user connected");
-    
+
     socket.on('data', function(data){
         mySuhu = data;
         console.log("Suhu: " + mySuhu);
 
         io.emit("data",{
-            suhu:mySuhu
+            suhu:mySuhu,
         })
 
       });
 
-    socket.on('analog',function(analog){
-        myAnalog=analog;
+      socket.on('analog', function(analog){
+        myAnalog = analog;
         console.log("Analog: " + myAnalog);
 
         io.emit("analog",{
