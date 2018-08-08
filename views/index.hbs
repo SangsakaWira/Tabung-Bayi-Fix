@@ -12,5 +12,9 @@
         socket.on("data",function(suhu){
             console.log("data: ",suhu);
         });
+
+        socket.on("analog",function(analog){
+            console.log("analog: ",analog);
+        });
   
 </script>
