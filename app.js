@@ -3,6 +3,7 @@ const app = express();
 const http = require('http');
 const hbs = require('hbs');
 const socketIO = require('socket.io');
+const delay = require('delay');
 
 var server = http.createServer(app);
 var io = socketIO(server);
@@ -32,7 +33,7 @@ io.on('connection',function(socket){
     socket.on('data', function(data){
         mySuhu = data;
         console.log("Suhu: " + mySuhu);
-
+        setTimeout(2000);
         io.emit("data",{
             suhu:mySuhu,
         })
