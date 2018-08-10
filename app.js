@@ -33,7 +33,6 @@ io.on('connection',function(socket){
     socket.on('data', function(data){
         mySuhu = data;
         console.log("Suhu: " + mySuhu);
-        setTimeout(2000);
         io.emit("data",{
             suhu:mySuhu,
         })
